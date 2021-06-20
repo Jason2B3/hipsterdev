@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  //% Styling the the nav spacing, size, and color
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around; //~ Changes spacing of nav logo+buttons
+  align-items: center; //~ Centers all elements on nav vertically
+  min-height: 8vh;
+  background-color: #5d4954;
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  //%styling THE NAV
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.nav-links {
+  //% Good & fast way to space out navbar buttons(1)
+  display: flex;
+  justify-content: space-around; //~ changes spacing for nav buttons only
+  width: 30%; //~adjust this to give the buttons more dedicated space
+}
+
+.nav-links li {
+  //%removes bullets on the navbar animated list
+  list-style: none;
+}
+
+.nav-links a {
+  //% styling the navbar button's text
+  color: rgb(226, 226, 226); //Logo Color
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.burger {
+  //%toggles burger on and off
+  display: none;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(226, 226, 226);
+  margin: 5px;
+  transition: all 0.3s ease;
+  //#2b. Adds a smooth transition to the burger icon turning into an x
+}
+//-———————————————【768px-1024px query start (TABLET)】————————————
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 60%;
+    //~ changed button spacing so it looks better on large screens
+  }
+} //————————————————【768px-1024px query end】—————————————————————
+//-———————————————【under 768px query start (MOBILE)】—————————————
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; //fixes any extra space the menu may take
+  }
+  .nav-links {
+    //^ Hardcoding our burger Slider
+    position: absolute;
+    right: 0px; // sticks to right side
+    height: 92vh; // takes up most the vertical space (aside fr/nav)
+    top: 8vh;
+    background-color: #5d4954;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%; //~ How far the slider sticks out (50% of nav element)
+    li {
+      margin-right: 90px;
+    }
+
+    transform: translateX(100%); //! moves slider left 4sumreason
+    transition: transform 0.4s ease-in; //~ makes the translation gradual
+    //! proctor says these lines move the slider offscreen to right
+  }
+  .nav-links li {
+    opacity: 0; //#1a original state of nav links is invisible
+  }
+  .burger {
+    display: block;
+    cursor: pointer; //adds pointer hover effect to burger
+  }
+  .nav-active {
+    //^ This class retracts the slider (added via JS)
+    transform: translateX(0%); //! set to 0% for some reason
+  }
+} //-——————————————————【under 768px query end】—————————————————————
+
+//+——————————————————【keyframe start】—————————————————————
+@keyframes navLinkFade {
+  //^ Animation retracts the slider backwards and makes it fade away
+  from {
+    opacity: 1;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 0; //#1b. TO state of nav links is fully visible
+    transform: translateX(180px);
+  }
+} //+——————————————————【keyframe end】—————————————————————
+
+//#2a These classes make the burgur item turn into an X when pressed
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}

@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; //# flickity
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+html {
+  font-size: 10px;
+} // makes using REM easier
+
+/* ⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆  Color Palettes  ⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆*/
+// $main: #2b70aa;
+$main: #4157a1;
+$comp: #ff7968;
+$shade: #6fa8e7;
+$comp2: #ebebc6; //gekk
+
+$charcoal: #36454f;
+$silver: #eef0f1;
+$link-hover: #9d3945;
+$subtext-color: #404040;
+$hover-color: #9798c2;
+/*⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆  Reusable Variables  ⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆⑆*/
+
+$nav-height: 70px;
+$media-nav-height: 180px;
+$article-box-height: 260px;
+
+$radius-one: 25px;
+$subtext-size: 1.6rem;
+
+$article-box-margin: 16px;
+$standard-margin: 2.2rem;
+
+@mixin set-zero {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin hide {
+  display: none;
+}
+
+@mixin nav-margin {
+  margin-right: 6vw; //vw units keep things dynamic
+}
+
+@mixin invert-color {
+  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+  filter: invert(100%);
+}
+
+// comment directory
+// Uturn <- Add in a valid link destination
+// Vswitch <-
